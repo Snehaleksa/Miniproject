@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+        box-sizing:border-box;
+        
+      }
+      .row{
+        display: flex;
+        flex-wrap: wrap;
+        height: 400px;
+        padding: 0 200px;
+        
+      }
+      .column{
+    
+        background-color: aliceblue;
+        flex: 50%;
+        max-width: 50%;
+        padding: 40px;
+        
+      }
+      .column form{
+        margin-top: 100px;
+        
+        box-sizing: border-box;
+        padding:80px 40px;
+        background-color: aqua;
+
+      }
+      
+      
+      
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            
+            <img src="{% static 'img/Rectangle 1.png' %}" alt="#" height="400px" width="50%">
+            
+        </div>
+        <div class="column">
+            
+            <form action="login" method="post">
+                {% csrf_token %}
+                <label for="">Username</label>
+                <input type="text"name="username" required><br><br>
+                <label for="">Password</label>
+                <input type="text" name="password" required><br><br>
+                <input type="submit">
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>
