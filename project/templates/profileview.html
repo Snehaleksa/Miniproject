@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="userhome">Home</a>
     <h4 style="text-align: center;">{{data1.name}}</h4>
     <div>
        <p><img src="{{ data1.image.url }}" alt=""height="100px" width="100px"></p>
@@ -24,5 +24,6 @@
     </div>  
 
     <p><a href="{% url 'edit' id=data1.id %}">edit</a><p>
+        <P><a href="more">more</a></P>
 </body>
 </html>

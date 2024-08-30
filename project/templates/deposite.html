@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{user.account_no}}</p>
+    <p>{{bank.brach}}</p>
+    <form action="deposit" method="post">
+        {% csrf_token %}
+        <label for="">Amount</label>
+        <input type="text" name="amount" required><br><br>
+        <input type="submit" name="deposite">
+    </form>
+</body>
+</html>

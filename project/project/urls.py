@@ -31,6 +31,8 @@ urlpatterns = [
     path('edit/<int:id>',views.edit,name='edit'),
     path('bankhome',views.bankhome),
     path('logout',views.Logout),
+    path('deposit',views.deposite),
+    path('more',views.more),
 ]
 
 
