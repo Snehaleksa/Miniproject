@@ -111,7 +111,9 @@ def edit(request,id):
     else:
         return render(request,'edit.html',{'data':data}) 
     
-
+def Logout(request):
+    auth.logout(request)
+    return redirect(Login)
 
 
 #bank
