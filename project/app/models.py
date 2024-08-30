@@ -14,7 +14,7 @@ class User(models.Model):
     user_id=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     name=models.CharField(max_length=100)
     account_no=models.IntegerField()
-    image=models.FileField()
+    image=models.FileField(upload_to='media')
     address=models.CharField(max_length=100)
     email=models.CharField(max_length=100)
     age=models.IntegerField()
