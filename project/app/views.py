@@ -75,7 +75,7 @@ def bankregister(request):
         password=request.POST['password']
         
         data=CustomUser.objects.create_user(username=username,password=password,user_type='bank')
-        data1=Bank.objects.create(bank_id=data,name=name,ifsc=ifsc,brach=branch,pincode=pincode,email=email,username=username,password=password)
+        data1=Bank.objects.create(bank_id=data,name=name,ifsc=ifsc,branch=branch,pincode=pincode,email=email,username=username,password=password)
         data1.save()
         return redirect(index)
     else:
@@ -138,8 +138,20 @@ def deposite(request):
         return render(request,'deposite.html',{'user':user,'bank':bank})
 
 
-        
-
+def withdrow(request):
+    data=CustomUser.objects.get(id=request.user.id)
+    user=User.objects.get(user_id=data)        
+    if request.method=="POST":
+        amount=request.POST['amount']
+        if int(amount)>0 and int(amount)< user.initial_amount:
+            user.initial_amount=user.initial_amount-int(amount)
+            data1=Transaction.objects.create(transaction_id=data,amount=amount,balance=user.initial_amount,details='debit')
+            data1.save()
+            return redirect(userhome)
+        else:
+            return render(request,'deposite.html',{'message':"invalid amount"})
+    else:
+        return render(request,'deposite.html')   
 
 
 

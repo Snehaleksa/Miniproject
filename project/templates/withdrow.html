@@ -1,0 +1,13 @@
+{% extends 'userhome.html' %}
+{% block content %}
+  <div>
+    
+    <form action="withdrow" method="post">
+        {% csrf_token %}
+        
+        <label for="">Withdrow</label>
+        <input type="text" name="amount" required><br><br>
+        <input type="submit" name="withdrow"> 
+    </form>
+  </div>  
+{% endblock %}

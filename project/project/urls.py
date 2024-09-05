@@ -33,6 +33,7 @@ urlpatterns = [
     path('logout',views.Logout),
     path('deposit',views.deposite),
     path('more',views.more),
+    path('withdrow',views.withdrow),
 ]
 
 

@@ -1,29 +1,44 @@
-<!DOCTYPE html>
+    
+    {% extends 'userhome.html' %}
+    <style>
+      
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="userhome">Home</a>
-    <h4 style="text-align: center;">{{data1.name}}</h4>
-    <div>
-       <p><img src="{{ data1.image.url }}" alt=""height="100px" width="100px"></p>
-       <p>{{data1.email}}</p>
-       <p>{{data1.address}}</p>
-       <p>{{data1.age}}</p>
-       <p>{{data1.adharcard}}</p>
-    </div> 
-    <div>
-        <p>{{data1.user_id.username}}</p>
-        <p>{{data1.dob}}</p>
-        <p>{{data1.phone}}</p>
-        <p>{{data1.pancard}}</p>
-    </div>  
+    </style>
+    
+    {% block content %}
+    <div style="padding-top: 2px;">
+      
+      <div style="background-color: rgb(91,248,196);width: 30%;height: 450px;margin-top: 40px;margin-left: 20px;border-radius: 20px;">
+        <img class="img" src="{{ data1.image.url }}" alt=""height="100px" width="100px" style="margin-left: 150px;border-radius: 50%;" >
+        <h4 style="text-align: center;">{{data1.name}}</h4>
+        <div style="display: flex;">
+          <div>
+          
+             <p style="margin-left: 50px;">Email</p>
+             <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{data1.email}}</p>
+             <p style="margin-left: 50px;">Address</p>
+             <p style="margin-left: 70px;color: rgb(4,68,4);">{{data1.address}}</p>
+             <p style="margin-left: 50px;">Age</p>
+             <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{data1.age}}</p>
+             <p style="margin-left: 50px;">Adhar no:</p>
+             <p style="margin-left: 70px;color: rgb(4,68,4);">{{data1.adharcard}}</p>
+          </div> 
+          <div>
+              <p style="margin-left: 80px;">Username</p>
+              <p style="margin-left: 100px;color: rgb(4,68,4);">{{data1.user_id.username}}</p>
+              <p style="margin-left: 80px;">Dob</p>
+              <p style="margin-left: 100px;color: rgb(4,68,4);">{{data1.dob}}</p>
+              <p style="margin-left: 80px;">Phone no:</p>
+              <p style="margin-left: 100px;color: (4,68,4);">{{data1.phone}}</p>
+              <p style="margin-left: 80px;">Pancard no:</p>
+              <p style="margin-left: 100px;color: (4,68,4);">{{data1.pancard}}</p>
+          </div>
+        </div> 
+      </div>  
 
-    <p><a href="{% url 'edit' id=data1.id %}">edit</a><p>
-        <P><a href="more">more</a></P>
+      <p><a href="{% url 'edit' id=data1.id %}">edit</a><p>
+          <P><a href="more">more</a></P>
+    </div>      
+      {% endblock %}    
 </body>
 </html>

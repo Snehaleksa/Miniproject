@@ -35,7 +35,7 @@ class Bank(models.Model):
     bank_id=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     name=models.CharField(max_length=100)
     ifsc=models.IntegerField()
-    brach=models.CharField(max_length=100)
+    branch=models.CharField(max_length=100)
     pincode=models.IntegerField()
     email=models.CharField(max_length=100)
     username=models.CharField(max_length=100)
