@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% for i in data %}
-    <p>{{i.name}}</p>
-    <p>{{i.ifsc}}</p>
-    <p>{{i.branch}}</p>
+{% extends 'userhome.html' %}
+{% block content %}
+  <div style="padding-top: 2px;">
+    
+    <p>{{data1.name}}</p>
+    <p>{{data1.ifsc}}</p>
+    <p>{{data1.branch}}</p>
     <a href="logout">Logout</a>
-    {% endfor %}
-</body>
-</html>
+    
+  </div>
+{% endblock %}

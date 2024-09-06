@@ -84,6 +84,7 @@ def bankregister(request):
 def userhome(request):
     data=CustomUser.objects.get(id=request.user.id)
     data1=User.objects.get(user_id=data)
+    
     return render(request,'userhome.html',{'data1':data1})
 
 
@@ -104,8 +105,8 @@ def edit(request,id):
         data.dob=request.POST['dob']
         data.phone=request.POST['phone']
         data.pancard=request.POST['pancard']
-        if 'Image' in request.FILES:
-            data.image=request.POST['image']
+        if 'image' in request.FILES:
+            data.image=request.FILES['image']
         data.save()
         return redirect(profileview)
     else:
@@ -143,15 +144,16 @@ def withdrow(request):
     user=User.objects.get(user_id=data)        
     if request.method=="POST":
         amount=request.POST['amount']
-        if int(amount)>0 and int(amount)< user.initial_amount:
+        if 0< int(amount)<user.initial_amount:
             user.initial_amount=user.initial_amount-int(amount)
+            data.save()
             data1=Transaction.objects.create(transaction_id=data,amount=amount,balance=user.initial_amount,details='debit')
             data1.save()
             return redirect(userhome)
         else:
-            return render(request,'deposite.html',{'message':"invalid amount"})
+            return render(request,'withdrow.html',{'message':"invalid amount"})
     else:
-        return render(request,'deposite.html')   
+        return render(request,'withdrow.html')   
 
 
 
@@ -162,5 +164,8 @@ def Logout(request):
 
 #bank
 def bankhome(request):
-    data=Bank.objects.all()
-    return render(request,'bankhome.html',{'data':data})
+    data=CustomUser.objects.get(id=request.user.id)
+    data1=Bank.objects.get(bank_id=data)
+
+    
+    return render(request,'bankhome.html',{'data1':data1})
