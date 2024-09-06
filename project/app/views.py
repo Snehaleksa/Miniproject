@@ -119,6 +119,7 @@ def more(request):
     data=CustomUser.objects.get(id=request.user.id)
     user=User.objects.get(user_id=data)
     bank=Bank.objects.all()
+    
     return render(request,'more.html',{'user':user,'bank':bank})    
 
 def deposite(request):
