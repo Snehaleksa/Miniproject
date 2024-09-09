@@ -24,6 +24,7 @@
     }
     .navbar{
         background-color: rgb(91, 248, 196);
+    
         height: 50px;
         
         
@@ -53,17 +54,43 @@
         padding-left: 10px;
     }
     
+
+    @media screen and(max-width:768){
+        .navbar ul li{
+            margin-left: 10px;
+        }
+        .main{
+            width: 95%;
+            max-width: 3000px;
+        }
+    }
+    @media screen and(max-width:480px){
+        .navbar{
+            flex-direction: column;
+            text-align: center;
+        }
+        .navbar ul{
+            margin: 5px 0;
+        }
+        .main{
+            width: 100%;
+            max-width: 350px;
+        }
+        
+    }
+    
     
 </style>
 <body>
         <nav class="navbar">
             <ul>
-              <li><a href="profileview"><img src="{% static 'img/flower.jpg' %}" alt="#" height="50px" width="70px" style="border-radius: 50%;"></a></li>
+              <li><a href="{% url 'profileview' %}"><img src="{{ data1.image.url }}" alt="#" height="50px" width="70px" style="border-radius: 50%;"></a></li>
              
-              <a style="margin: auto;" href="userhome">Home</a>
-              <a style="margin: auto;" href="deposit">Deposite</a>
-              <a style="margin: auto;" href="withdrow">Withdrow</a>
-              <a style="margin: auto;" href="logout">Logout</a>
+              <a style="margin: auto;text-decoration: none;" href="{% url 'userhome' %}">Home</a>
+              <a style="margin: auto;text-decoration: none;" href="{% url 'deposit' %}">Deposite</a>
+              <a style="margin: auto;text-decoration: none;" href="{% url 'withdrow' %}">Withdrow</a>
+              <a style="margin: auto;text-decoration: none;" href="{% url 'logout' % }">Logout</a>
+              <a style="margin: auto;text-decoration: none;" href="{% url 'history' %}">View history</a>
             </ul>
         </nav>
         

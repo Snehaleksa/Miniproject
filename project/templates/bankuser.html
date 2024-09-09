@@ -1,0 +1,42 @@
+{% extends 'bankhome.html' %}
+{% block content %} 
+{% load static %}
+<style>
+   .container{
+    background-image: url("{% static 'img/Rectangle 5.png' %}");
+   } 
+</style>
+<div class="container">
+      
+    <div style="background-color: rgb(91,248,196);width: 30%;height: 450px;margin-top: 40px;margin-left: 20px;border-radius: 20px;">
+      <img class="img" src="{{ user.image.url }}" alt=""height="100px" width="100px" style="margin-left: 150px;border-radius: 50%;" >
+      <h4 style="text-align: center;">{{user.name}}</h4>
+      <div style="display: flex;">
+        <div>
+        
+           <p style="margin-left: 50px;">Email</p>
+           <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{user.email}}</p>
+           <p style="margin-left: 50px;">Address</p>
+           <p style="margin-left: 70px;color: rgb(4,68,4);">{{user.address}}</p>
+           <p style="margin-left: 50px;">Age</p>
+           <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{user.age}}</p>
+           <p style="margin-left: 50px;">Adhar no:</p>
+           <p style="margin-left: 70px;color: rgb(4,68,4);">{{user.adharcard}}</p>
+        </div> 
+        <div>
+            <p style="margin-left: 80px;">Username</p>
+            <p style="margin-left: 100px;color: rgb(4,68,4);">{{user.user_id.username}}</p>
+            <p style="margin-left: 80px;">Dob</p>
+            <p style="margin-left: 100px;color: rgb(4,68,4);">{{user.dob}}</p>
+            <p style="margin-left: 80px;">Phone no:</p>
+            <p style="margin-left: 100px;color: (4,68,4);">{{user.phone}}</p>
+            <p style="margin-left: 80px;">Pancard no:</p>
+            <p style="margin-left: 100px;color: (4,68,4);">{{user.pancard}}</p>
+        </div>
+      </div> 
+    </div>  
+
+    
+  </div>  
+{% endblock %}    
+    

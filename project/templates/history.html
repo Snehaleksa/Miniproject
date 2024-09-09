@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Sl no</th>
+            <th>datetime</th>
+            <th>amount</th>
+            <th>balance</th>
+            <th>details</th>
+        </tr>
+        {% for i in user %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.datetime}}</td>
+            <td>{{i.amonunt}}</td>
+            <td>{{i.balance}}</td>
+            <td>{{i.details}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

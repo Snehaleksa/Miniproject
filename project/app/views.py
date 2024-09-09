@@ -130,7 +130,7 @@ def deposite(request):
         amount=request.POST['amount']
         if int(amount) > 0:
             user.initial_amount=user.initial_amount+int(amount)
-            data.save()
+            user.save()
             data1=Transaction.objects.create(transaction_id=data,amount=amount,balance=user.initial_amount,details='deposite')
             data1.save()
             return redirect(userhome)
@@ -149,13 +149,18 @@ def withdrow(request):
             user.initial_amount=user.initial_amount-int(amount)
             data.save()
             data1=Transaction.objects.create(transaction_id=data,amount=amount,balance=user.initial_amount,details='debit')
-            data1.save()
+            user.save()
             return redirect(userhome)
         else:
             return render(request,'withdrow.html',{'message':"invalid amount"})
     else:
         return render(request,'withdrow.html')   
 
+
+def history(request):
+    data=CustomUser.objects.get(id=request.user.id)
+    user=Transaction.objects.filter(transaction_id=data)
+    return render(request,'history.html',{'user':user})
 
 
 def Logout(request):
@@ -170,3 +175,19 @@ def bankhome(request):
 
     
     return render(request,'bankhome.html',{'data1':data1})
+
+def bankviewuser(request):
+    user=User.objects.all()
+    return render(request,'bankviewuser.html',{'user':user}) 
+
+def bankuser(request,id):
+    user=User.objects.get(id=id)
+    return render(request,'bankuser.html',{'user':user})       
+
+def bankuserhistory(request,id):
+    user=User.objects.get(id=id)
+    data=CustomUser.objects.get(id=user.user_id)
+    data1=Transaction.objects.filter(transaction_id=data) 
+    return render(request,'userhistory.html',{'data':data1}) 
+
+

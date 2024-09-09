@@ -1,0 +1,48 @@
+{% extends 'bankhome.html' %}
+{% block content %}
+{% load static %}
+
+    <style>
+        table,td,th{
+            
+            border-collapse: collapse;
+        }
+        button{
+            border-radius: 10px;
+            background-color: rgb(91,248,196);
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        
+    </style>
+    <div style="display: flex;align-items: center;flex-wrap: wrap;">
+      <div style="width: 50%;height: 600px;">
+          <img src="{% static 'img/Rectangle 1.png' %}" alt=""height="600px" width="100%">
+      </div>
+      <div style="width: 50%;height: 600px;">
+        
+        <table style="width: 100%;margin: 10px;">
+            <tr>
+                <th>sl.no</th>
+                <th></th>
+                <th>User Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for i in user %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td><img style="border-radius: 50%;" src="{{i.image.url}}" alt=""height="50px" width="70px"></td>
+                <td style="text-align: center;">{{i.name}}</td>
+                <td><button><a href="{% url 'bankuser' id=i.id %}">View</a></button></td>
+                <td><button><a href="{% url 'viewhistory' id=i.id %}">History</a></button></td>
+            </tr>
+            {% endfor %}
+        </table>
+      </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

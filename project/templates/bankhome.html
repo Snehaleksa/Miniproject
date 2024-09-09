@@ -1,11 +1,71 @@
-{% extends 'userhome.html' %}
-{% block content %}
-  <div style="padding-top: 2px;">
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .navbar {
+          background-color: rgb(91,248,196);
+          height: 60px;
+      }
+      .main{
+        display: flex;
+        justify-content: flex-end;
+        padding: 25px;
+      }
+      .main a{
+        text-decoration: none;
+        
+        padding: 10px;
+      }
+      .main li{
+        list-style-type: none;
+      }
+      .container{
+        background-image: url("{% static 'img/Rectangle 5.png' %}");
+        background-size: 100% 100%;
+        width: 100%;
+        height: 600px;
+        padding-top: 2px;
+      }
+      @media  screen and(max-width:768){
+        .navbar ul li a{
+          margin-left: 10px;
+
+        }
+      }
+      @media screen and(max-width:480px){
+        .navbar ul li a{
+          flex-direction: row;
+        }
+        .navbar ul li{
+          margin:5px 0;
+
+        }
+      }
+
+    </style>
+</head>
+<body>
+  
+  <nav class="navbar">
+    
+    <ul class="main">
+      <li><a href="{% url 'viewuser' %}">VIEWUSER</a></li>
+      <li><a href="logout">Logout</a></li>
+    </ul>
+  </nav>
+  {% block content %} 
+  <div class="container">
     
     <p>{{data1.name}}</p>
     <p>{{data1.ifsc}}</p>
     <p>{{data1.branch}}</p>
-    <a href="logout">Logout</a>
+    
     
   </div>
-{% endblock %}
+  {% endblock %}  
+</body>
+</html>

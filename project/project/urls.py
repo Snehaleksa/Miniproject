@@ -26,14 +26,22 @@ urlpatterns = [
     path('register',views.Register),
     path('bankregister',views.bankregister),
     path('login',views.Login),
-    path('userhome',views.userhome),
-    path('profileview',views.profileview),
+    path('userhome',views.userhome,name='userhome'),
+    path('profileview',views.profileview,name='profileview'),
     path('edit/<int:id>',views.edit,name='edit'),
     path('bankhome',views.bankhome),
     path('logout',views.Logout),
-    path('deposit',views.deposite),
+    path('deposit',views.deposite,name='deposit'),
     path('more',views.more),
-    path('withdrow',views.withdrow),
+    path('withdrow',views.withdrow,name='withdrow'),
+    path('history',views.history,name='history'),
+    path('viewuser',views.bankviewuser,name='viewuser'),
+    path('bankuser/<int:id>',views.bankuser,name='bankuser'),
+    path('viewhistory/<int:id>',views.bankuserhistory,name='viewhistory'),
+    
+
+    
+    
 ]
 
 

@@ -14,7 +14,7 @@
       .row{
         display: flex;
         flex-wrap: wrap;
-        border: 1px solid white;
+        
         width: 100%;
         
         height: 400px;
@@ -22,34 +22,29 @@
         
       }
       .column{
-         flex-basis: 50%;
-
-         
-      
-      
-        
+        flex-basis: 50%;
+        padding: 20px;
       }
+      
       .column img{
         margin-bottom: 0px;
-        width: 50%;
-        height: 400px;
-        margin-left: 100px;
+        width: 70%;
+        height: 100%;
+        object-fit: cover;
         
       }
-      .column1 form{
-        margin-top:100px;
-        
+      .column form{
+      
+        margin-top: 100px;
         padding: 80px ;
-        box-sizing: border-box;
+        align-items: center;
         background-color: rgb(36, 253, 170);
+        box-sizing: border-box;
+        width: 50%;
         
 
       }
-      .colum1{
-        flex-basis:50%;
-        height: 400px;
-
-        }
+    
       
       
       @media screen and(max-width:600px) {
@@ -73,7 +68,7 @@
             <img src="{% static 'img/Rectangle 1.png' %}" alt="#" height="400px" width="50%">
             
         </div>
-        <div class="column1">
+        <div class="column">
           {%block content %}
             
             <form action="login" method="post">
