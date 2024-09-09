@@ -9,13 +9,14 @@
     
 <table>
     <tr>
-        <th>AMOUNT</th>
+        <th>details</th>
     </tr>
-    {% for i data1 %}
+    {% for i in data1 %}
     <tr>
-        <td>{{data1.amount}}</td>
+        <td>{{i.details}}</td>
     </tr>
     {% endfor %}
+    
 </table>
 
     

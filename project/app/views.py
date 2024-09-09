@@ -188,6 +188,6 @@ def bankuserhistory(request,id):
     user=User.objects.get(id=id)
     data=CustomUser.objects.get(id=user.user_id)
     data1=Transaction.objects.filter(transaction_id=data) 
-    return render(request,'userhistory.html',{'data':data1}) 
+    return render(request,'userhistory.html',{'data1':data1}) 
 
 
