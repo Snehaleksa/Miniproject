@@ -7,80 +7,109 @@
     <title>Document</title>
     <style>
       *{
-        box-sizing:border-box;
-        
-        
-      }
-      .row{
-        display: flex;
-        flex-wrap: wrap;
-        
-        width: 100%;
-        
-        height: 400px;
-    
-        
-      }
-      .column{
-        flex-basis: 50%;
-        padding: 20px;
-      }
-      
-      .column img{
-        margin-bottom: 0px;
-        width: 70%;
-        height: 100%;
-        object-fit: cover;
-        
-      }
-      .column form{
-      
-        margin-top: 100px;
-        padding: 80px ;
-        align-items: center;
-        background-color: rgb(36, 253, 170);
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
-        width: 50%;
+      }
+      body{
+        font-family: Arial,  sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         
+      }  
+      .container{
+        display: flex;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 1000px;
+        width: 100%;
+      }
+      .image-section {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+          width: 50%;
+      }
+      .imge-section img{
+        width: 100%;
+        height: auto;
+      }
+      .login-section{
+        padding: 40px;
+        width: 40%;
+        background-color: rgb(91,248,196);
+        height: 400px;
+        margin-top: 20px;
+        border-radius: 10px;
+      }
+      h2{
+        font-size: 24px;
+        margin-bottom: 15px;
 
       }
-    
-      
-      
-      @media screen and(max-width:600px) {
-        .column,.column1{
+      .input-group{
+        margin-bottom: 15px;
 
-          flex: 100%;
-          max-width: 100%;
-        }
-        
       }
-    
+      .input-group label{
+        display: block;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+      .input-group input{
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .button1{
+        width: 30%;
+        align-items: center;
+        padding: 10px;
+        background-color: white;
+        
+        border: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-left: 100px;
+      }
       
       
       
     </style>
 </head>
 <body>
-    <div class="row">
-        <div class="column">
+    <div class="container">
+        <div class="image-section">
+          
             
-            <img src="{% static 'img/Rectangle 1.png' %}" alt="#" height="400px" width="50%">
+          <img src="{% static 'img/Rectangle 1.png' %}" alt="#" height="400px" width="50%">
             
         </div>
-        <div class="column">
-          {%block content %}
+        {% block content %}
+        <div class="login-section">
+          
+          <h2 style="text-align: center;color: black;">Login</h2>
+          
             
             <form action="login" method="post">
                 {% csrf_token %}
-                <label for="">Username</label>
-                <input type="text"name="username" required><br><br>
-                <label for="">Password</label>
-                <input type="text" name="password" required><br><br>
-                <input type="submit">
+                <div class="input">
+                  <label for="">Username</label>
+                  <input type="text"name="username" required><br><br>
+                  <label for="">Password</label>
+                  <input type="text" name="password" required><br><br>
+                  
+                </div> 
+                <button class="button1" type="submit">Login</button> 
             </form>
             
-            <a href="register">Register</a>
+            <p style="margin-top: 50px;">Don't have an account?<a href="register">Register</a></p>
             {% endblock %}
             {% if message %}
             <p>{{message}}</p>

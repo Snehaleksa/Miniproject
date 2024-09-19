@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body, html {height: 100%}
+.bgimg {
+  background-image: url("{% static 'img/Rectangle 5.png' %}");
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    <img src="{% static 'img/home.png' %}" alt="">
+  </div>
+  <div style="display: grid; place-items: center;margin: auto;width: 50%;margin-top: 200px;">
+    <h3 style="color: white;font-style: oblique;">Simple and Safe and Banking</h3>
+    <h1 style="color: goldenrod;font-size: 50px;font-style: italic;">Horizon Bank</h1>
+    <div style="display: flex;gap: 20px;">
+      <button><a style="text-decoration: none;" href="register">Resister</a></button>
+      <button><a style="text-decoration: none;" href="login">Login</a></button>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+</body>
+</html>

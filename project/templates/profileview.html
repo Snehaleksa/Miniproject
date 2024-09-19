@@ -1,44 +1,46 @@
     
     {% extends 'userhome.html' %}
-    <style>
-      
-
-    </style>
+    
     
     {% block content %}
-    <div style="padding-top: 2px;">
+    {% load static %}
+    <div>
       
-      <div style="background-color: rgb(91,248,196);width: 30%;height: 450px;margin-top: 40px;margin-left: 20px;border-radius: 20px;">
+      <div style="background-color: rgb(91,248,196);width: 100%;height: 500px;border-radius: 20px;margin-left: 20px;">
         <img class="img" src="{{ data1.image.url }}" alt=""height="100px" width="100px" style="margin-left: 150px;border-radius: 50%;" >
         <h4 style="text-align: center;">{{data1.name}}</h4>
         <div style="display: flex;">
           <div>
           
-             <p style="margin-left: 50px;">Email</p>
-             <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{data1.email}}</p>
-             <p style="margin-left: 50px;">Address</p>
-             <p style="margin-left: 70px;color: rgb(4,68,4);">{{data1.address}}</p>
-             <p style="margin-left: 50px;">Age</p>
-             <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{data1.age}}</p>
-             <p style="margin-left: 50px;">Adhar no:</p>
-             <p style="margin-left: 70px;color: rgb(4,68,4);">{{data1.adharcard}}</p>
+             <p style="margin-left: 30px;">Email</p>
+             <p style="margin-left: 50px;color: rgb(4, 68, 4);">{{data1.email}}</p>
+             <p style="margin-left: 30px;">Address</p>
+             <p style="margin-left: 50px;color: rgb(4,68,4);">{{data1.address}}</p>
+             <p style="margin-left: 30px;">Age</p>
+             <p style="margin-left: 50px;color: rgb(4, 68, 4);">{{data1.age}}</p>
+             <p style="margin-left: 30px;">Adhar no:</p>
+             <p style="margin-left: 50px;color: rgb(4,68,4);">{{data1.adharcard}}</p>
           </div> 
           <div>
-              <p style="margin-left: 80px;">Username</p>
-              <p style="margin-left: 100px;color: rgb(4,68,4);">{{data1.user_id.username}}</p>
-              <p style="margin-left: 80px;">Dob</p>
-              <p style="margin-left: 100px;color: rgb(4,68,4);">{{data1.dob}}</p>
-              <p style="margin-left: 80px;">Phone no:</p>
-              <p style="margin-left: 100px;color: (4,68,4);">{{data1.phone}}</p>
-              <p style="margin-left: 80px;">Pancard no:</p>
-              <p style="margin-left: 100px;color: (4,68,4);">{{data1.pancard}}</p>
+              <p style="margin-left: 60px;">Username</p>
+              <p style="margin-left: 80px;color: rgb(4,68,4);">{{data1.user_id.username}}</p>
+              <p style="margin-left: 60px;">Dob</p>
+              <p style="margin-left: 80px;color: rgb(4,68,4);">{{data1.dob}}</p>
+              <p style="margin-left: 60px;">Phone no:</p>
+              <p style="margin-left: 80px;color: (4,68,4);">{{data1.phone}}</p>
+              <p style="margin-left: 60px;">Pancard no:</p>
+              <p style="margin-left: 80px;color: (4,68,4);">{{data1.pancard}}</p>
           </div>
+              
         </div> 
+            
+              <p style="margin-left: 350px;"><a href="{% url 'edit' id=data1.id %}"><img src="{% static 'img/edit.png'%}" alt="" height="25px" width="25px"></a><p>   
       </div>  
 
-      <p><a href="{% url 'edit' id=data1.id %}">edit</a><p>
-          <P><a href="more">more</a></P>
+      
+        
     </div>      
-      {% endblock %}    
+      {% endblock %}  
+      
 </body>
 </html>

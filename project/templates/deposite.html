@@ -1,14 +1,18 @@
 {% extends 'userhome.html' %}
 {% block content %}
-  <div style="padding-top: 2px;">
+  <div style="padding-top: 2px;background-color: rgb(91,248,196);width: 20%;height: 400px;border-radius: 20px;text-align: center;margin-left: 10px;">
+    <h3>Account_no</h3>
     <p>{{user.account_no}}</p>
-    <p>{{bank.brach}}</p>
+    <h3>Branch</h3>
+    {% for i in bank %}
+    <p>{{i.branch}}</p><br>
+    {% endfor %}
     
     <form action="deposit" method="post">
         {% csrf_token %}
-        <label for="">Amount</label>
-        <input type="text" name="amount" required><br><br>
-        <input type="submit" name="deposite">
+        <h3>Amount</h3>
+        <input style="border-radius: 5px;" type="text" name="amount" required><br><br><br><br>
+        <input style="border-radius: 5px;" type="submit" name="deposite" value="Deposite">
     </form>
   </div>  
 {% endblock %}

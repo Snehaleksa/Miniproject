@@ -1,25 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'bankhome.html' %}
+{% block content %}
+{% load static %}
+<style>
+   .table1{
+    background-image: url("{% static 'img/Rectangle 5.png' %}");
+    height: 600px;
+   } 
+</style>
+<div class="table1">  
+  <table>
+      <tr>
+          <th>details</th>
+      </tr>
+      {% for i in data1 %}
+      <tr>
+          <td>{{i.details}}</td>
+        
+      </tr>
+      {% endfor %}
     
-<table>
-    <tr>
-        <th>details</th>
-    </tr>
-    {% for i in data1 %}
-    <tr>
-        <td>{{i.details}}</td>
-    </tr>
-    {% endfor %}
-    
-</table>
+  </table>
+</div>  
 
     
-    
-</body>
-</html>
+  {% endblock %}    

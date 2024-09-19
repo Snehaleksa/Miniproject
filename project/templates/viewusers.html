@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>sl.no</th>
+            <th></th>
+            <th>User Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for i in user %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            
+            <td>{{i.name}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.address}}</td>
+            <td><button><a href="{% url 'bankuser' id=i.id %}">View</a></button></td>
+            <td>
+                <form action="{% url 'adminuseraccept' id=i.id %}" method="post">
+                   {% csrf_token %}
+                   {% if i.user_id.status=='pending' %}
+                   <input type="text" name="status" hidden>
+                     <button  name="status" value="accepted">Accepted</button>
+                     <button name="status" value="rejected">Reject</button>
+                   {% elif i.user_id.status =='accepted' %}
+                      <button name="status" value="rejectec">Reject</button>
+                   {% else %}  
+                       <button name="status" value="accepted">Accept</button>
+                   {% endif %}     
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+
+</body>
+</html>

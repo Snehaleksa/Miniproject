@@ -30,21 +30,7 @@
         height: 600px;
         padding-top: 2px;
       }
-      @media  screen and(max-width:768){
-        .navbar ul li a{
-          margin-left: 10px;
-
-        }
-      }
-      @media screen and(max-width:480px){
-        .navbar ul li a{
-          flex-direction: row;
-        }
-        .navbar ul li{
-          margin:5px 0;
-
-        }
-      }
+      
 
     </style>
 </head>
@@ -54,7 +40,7 @@
     
     <ul class="main">
       <li><a href="{% url 'viewuser' %}">VIEWUSER</a></li>
-      <li><a href="logout">Logout</a></li>
+      <li><a  href="logout"><img src="{% static 'img/logout.png'%}" alt="" width="25px" height="25px"></a></li>
     </ul>
   </nav>
   {% block content %} 

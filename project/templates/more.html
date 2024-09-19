@@ -1,14 +1,19 @@
 {% extends 'userhome.html' %}
 {% block content %}
-<div style="padding-top: 2px;">
-    <p>{{user.account_no}}</p>
+<div style="padding-top: 2px;background-color: rgb(91,248,196);border-radius: 20px;text-align: center;width: 30%;height: 300px;margin-left: 10px;">
+    
     {% for i in bank %}
+    <h3>Bank Name</h3>
+    <p>{{i.name}}</p>
+    <h3>Branch</h3>
+    <p>{{i.branch}}</p>
+    <h3>IFSC CODE</h3>
     <p>{{i.ifsc}}</p>
     
     {% endfor %}
-    <p>{{user.initial_amount}}</p>
-    <a href="deposit">deposite</a>
-    <a href="withdrow">Withdrow</a>
+    
+    <button style="border-radius: 10px;"><a style="text-decoration: none;color: black;" href="deposit">deposite</a></button>
+    <button style="border-radius: 10px;"><a style="text-decoration: none;color: black;" href="withdrow">Withdrow</a></button>
 </div>
 {% endblock %}    
     

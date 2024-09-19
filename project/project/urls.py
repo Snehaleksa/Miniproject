@@ -30,7 +30,7 @@ urlpatterns = [
     path('profileview',views.profileview,name='profileview'),
     path('edit/<int:id>',views.edit,name='edit'),
     path('bankhome',views.bankhome),
-    path('logout',views.Logout),
+    path('logout',views.Logout,name='logout'),
     path('deposit',views.deposite,name='deposit'),
     path('more',views.more),
     path('withdrow',views.withdrow,name='withdrow'),
@@ -38,6 +38,10 @@ urlpatterns = [
     path('viewuser',views.bankviewuser,name='viewuser'),
     path('bankuser/<int:id>',views.bankuser,name='bankuser'),
     path('viewhistory/<int:id>',views.bankuserhistory,name='viewhistory'),
+    path('admin1',views.admin,name='admin1'),
+    path('viewusers',views.viewusers,name='viewusers'),
+    path('index1',views.index1,name='index1'),
+    path('adminuseraccept/<int:id>',views.adminuseraccept,name='adminuseraccept'),
     
 
     

@@ -1,44 +1,58 @@
     {% extends 'login.html' %}
     
     {% block content %}
+    <style>
+      .button2{
+        margin-left: 45%;
+        
+      }
+    </style>
+  <div style="width: 70%;background-color: rgb(91,248,196);margin-right: 50px;margin-top: 20px;height: 400px;"> 
     <form action="register" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div style="display: flex;width: 100%;">
+        <div style="display: flex;margin-left: 50px;">
           <div>
-             <label for="">Name</label>
+             <h6>Name</h6>
              <input type="text"name="name" required><br><br>
-             <label for="">Userame</label>
+             <h6> Userame</h6>
              <input type="text"name="username" required><br><br>
-             <label for="">Password</label>
+             <h6>Password</h6>
              <input type="text"name="password" required><br><br>
-             <label for="">Account_no</label>
+             <h6>Account_no</h6>
              <input type="text"name="account_no" required><br><br>
           
           
-             <label for="">Image</label>
+             <h6>Image</h6>
              <input type="file"name="image" required><br><br>
-             <label for="">Address</label>
+             <h6>Address</h6>
              <input type="text"name="address" required><br><br>
+             <h6>Age</h6>
+             <input type="text" name="age" required><br><br>
            </div> 
            <div> 
-             <label for="">Email</label>
+             <h6>Email</h6>
              <input type="text"name="email" required><br><br>
-             <label for="">Age</label>
+             <h6>Age</h6>
              <input type="text"name="age" required><br><br>
-             <label for="">Phone</label>
+             <h6>Phone</h6>
              <input type="text"name="phone" required><br><br>
-             <label for="">Dob</label>
+             <h6>Dob</h6>
              <input type="date"name="dob" required><br><br>
-             <label for="">Adharcard_no</label>
+             <h6>Adharcard_no</h6>
              <input type="text"name="adharcard" required><br><br>
-             <label for="">Pancard_no</label>
+             <h6>Pancard_no</h6>
              <input type="text"name="pancard" required><br><br>
-             <label for="">Initial_amount</label>
+             <h6>Initial_amount</h6>
              <input type="text"name="initial_amount" required><br><br>
         
-             <input type="submit">
+             
           </div>
-        </div>  
-        <a href="login">Login</a>
+          
+        </div> 
+        <button class="button2" type="submit">Register</button> 
+            <p style="margin-left: 110px;">Already have an account?
+            <a style="text-decoration: none;" href="login">login</a></p>
+        
     </form>
+  </div>  
     {% endblock %}

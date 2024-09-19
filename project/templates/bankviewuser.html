@@ -7,6 +7,17 @@
             
             border-collapse: collapse;
         }
+        table{
+            width: 100%;
+        }
+        th{
+            padding: 10px;
+            text-align: left;
+        }
+        td{
+            padding: 10px;
+            
+        }
         button{
             border-radius: 10px;
             background-color: rgb(91,248,196);
@@ -15,13 +26,34 @@
             text-decoration: none;
             color: black;
         }
+        .sidebar{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            padding: 20px;
+        }
+        .sidebar img{
+            width: 100%;
+            height: auto;
+        }
+        .main2{
+            width: 70%;
+            padding: 20px;
+            background-color: whitesmoke;
+            
+        }
+        .containermain{
+            display: flex;
+        }
         
     </style>
-    <div style="display: flex;align-items: center;flex-wrap: wrap;">
-      <div style="width: 50%;height: 600px;">
-          <img src="{% static 'img/Rectangle 1.png' %}" alt=""height="600px" width="100%">
+    <div class="containermain">
+      <div class="sidebar" >
+          <img src="{% static 'img/Rectangle 1.png' %}" alt="">
       </div>
-      <div style="width: 50%;height: 600px;">
+      <div class="main2">
         
         <table style="width: 100%;margin: 10px;">
             <tr>

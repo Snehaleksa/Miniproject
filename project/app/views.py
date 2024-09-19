@@ -8,7 +8,7 @@ from django.contrib.auth.models import auth
 
 
 def index(request):
-    return render(request,'login.html')
+    return render(request,'index1.html')
 
 def Login(request):
     if request.method=='POST':
@@ -16,8 +16,12 @@ def Login(request):
         password=request.POST['password']
 
         user = authenticate(username=username,password=password)
+        admin_user=authenticate(request,username=username,password=password)
+        if admin_user is not None and admin_user.is_staff:
+            login(request,admin_user)
+            return redirect(admin)
         
-        if user is not None:
+        elif user is not None:
             login(request,user)
             if user.user_type=="user" and user.status=='accepted':
                 return redirect(userhome)
@@ -152,7 +156,7 @@ def withdrow(request):
             user.save()
             return redirect(userhome)
         else:
-            return render(request,'withdrow.html',{'message':"invalid amount"})
+            return render(request,'withdrow.html',{'user':user},{'message':"invalid amount"})
     else:
         return render(request,'withdrow.html')   
 
@@ -186,8 +190,33 @@ def bankuser(request,id):
 
 def bankuserhistory(request,id):
     user=User.objects.get(id=id)
-    data=CustomUser.objects.get(id=user.user_id)
+    data=CustomUser.objects.get(id=user.user_id.id)
     data1=Transaction.objects.filter(transaction_id=data) 
     return render(request,'userhistory.html',{'data1':data1}) 
 
 
+def admin(request):
+    return render(request,'admin.html')
+
+def viewusers(request):
+    user=User.objects.all()
+    return render(request,'viewusers.html',{'user':user}) 
+
+
+def index1(request):
+    return render(request,'index1.html')
+
+
+
+def adminuseraccept(request,id):
+    data=User.objects.get(id=id)
+    if request.method=='POST':
+        status =request.POST.get('status')
+        if status=='accepted':
+            data.user_id.status='accepted'
+        elif status=='rejected':
+            data.user_id.status='rejected'
+        data.user_id.save()
+        return redirect(viewusers)
+    else:
+        return redirect(viewusers)  
