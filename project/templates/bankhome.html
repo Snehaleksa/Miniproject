@@ -44,12 +44,15 @@
     </ul>
   </nav>
   {% block content %} 
-  <div class="container">
-    
-    <p>{{data1.name}}</p>
-    <p>{{data1.ifsc}}</p>
-    <p>{{data1.branch}}</p>
-    
+  <div class="container" >
+    <div style="background-color: rgb(91,248,198);width: 20%;height: 250px;margin-top: 50px;margin-left: 20px;border-radius: 20px;">
+       <h4 style="text-align: center;">Bank Name</h4>
+       <p style="text-align: center;">{{data1.name}}</p>
+       <h4 style="text-align: center;">IFSC</h4>
+       <p style="text-align: center;">{{data1.ifsc}}</p>
+       <h4 style="text-align: center;">Branch</h4>
+       <p style="text-align: center;">{{data1.branch}}</p>
+    </div>
     
   </div>
   {% endblock %}  
