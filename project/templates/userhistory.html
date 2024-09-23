@@ -2,22 +2,46 @@
 {% block content %}
 {% load static %}
 <style>
-   .table1{
+   .container1{
     background-image: url("{% static 'img/Rectangle 5.png' %}");
     height: 600px;
+    
    } 
+   table,td,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-left: 100px;
+    
+    
+    width: 50%;
+    
+   }
+   td,th{
+     
+     padding: 20px;
+     text-align: center;
+   }
 </style>
-<div class="table1">  
+<div class="container1">  
   <table>
       <tr>
+          <th colspan="3">Transaction History</th>
+      </tr>
+      <tr>
+          
+          <th>Amount</th>
           <th>details</th>
       </tr>
       {% for i in data1 %}
       <tr>
+          
+          <td>{{i.amount}}</td>
           <td>{{i.details}}</td>
         
       </tr>
+
       {% endfor %}
+      
     
   </table>
 </div>  

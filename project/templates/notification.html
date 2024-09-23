@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("{% static 'img/Rectangle 5.png' %}");
+        }
+        
+        .form-container form{
+            margin-left: 20px;
+            margin-top: 50px;
+            width: 30%;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="form-container">
+       <form action="notification" method="post" style="background-color: rgb(91,248,196);">
+           {% csrf_token %}
+           <p>Add notifications</p>
+           <input style="width: 200px; height: 100px;"  type="text" name="addnotications" required><br><br>
+           <input type="submit">
+       </form>
+    </div>
+</body>
+</html>

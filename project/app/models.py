@@ -54,3 +54,6 @@ class Transaction(models.Model):
     balance=models.IntegerField()
 
     
+
+class Notification(models.Model):
+    notification=models.CharField(max_length=100)

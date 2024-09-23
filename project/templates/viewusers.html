@@ -25,11 +25,11 @@
             <td>
                 <form action="{% url 'adminuseraccept' id=i.id %}" method="post">
                    {% csrf_token %}
-                   {% if i.user_id.status=='pending' %}
+                   {% if i.user_id.status == 'pending' %}
                    <input type="text" name="status" hidden>
-                     <button  name="status" value="accepted">Accepted</button>
+                     <button name="status" value="accepted">Accepted</button>
                      <button name="status" value="rejected">Reject</button>
-                   {% elif i.user_id.status =='accepted' %}
+                   {% elif i.user_id.status == 'accepted' %}
                       <button name="status" value="rejected">Reject</button>
                    {% else %}  
                        <button name="status" value="accepted">Accept</button>

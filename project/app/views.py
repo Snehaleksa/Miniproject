@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import User,CustomUser,Bank,Transaction
+from .models import User,CustomUser,Bank,Transaction,Notification
 
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import auth
@@ -192,11 +192,13 @@ def bankuserhistory(request,id):
     user=User.objects.get(id=id)
     data=CustomUser.objects.get(id=user.user_id.id)
     data1=Transaction.objects.filter(transaction_id=data) 
+    
     return render(request,'userhistory.html',{'data1':data1}) 
 
 
 def admin(request):
     return render(request,'admin.html')
+
 
 def viewusers(request):
     user=User.objects.all()
@@ -220,3 +222,13 @@ def adminuseraccept(request,id):
         return redirect(viewusers)
     else:
         return redirect(viewusers)  
+
+
+def notifications(request):
+    if request.method=='POST':
+        notifications=request.POST['addnotifications']
+        data=Notification.objects.create(notification=notifications)
+        data.save()
+        return render(request,'notification.html')
+    else:
+        return render(request,'notification.html')
