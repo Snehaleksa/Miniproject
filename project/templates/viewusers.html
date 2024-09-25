@@ -21,7 +21,7 @@
             <td>{{i.name}}</td>
             <td>{{i.phone}}</td>
             <td>{{i.address}}</td>
-            <td><button><a href="{% url 'bankuser' id=i.id %}">View</a></button></td>
+            <td><button><a href="{% url 'adminview' id=i.id %}">View</a></button></td>
             <td>
                 <form action="{% url 'adminuseraccept' id=i.id %}" method="post">
                    {% csrf_token %}

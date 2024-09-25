@@ -43,6 +43,8 @@ urlpatterns = [
     path('index1',views.index1,name='index1'),
     path('adminuseraccept/<int:id>',views.adminuseraccept,name='adminuseraccept'),
     path('notification',views.notifications,name='notification'),
+    path('viewnotification',views.viewnotification,name='viewnotification'),
+    path('adminview/<int:id>',views.adminview,name='adminview'),
     
 
     

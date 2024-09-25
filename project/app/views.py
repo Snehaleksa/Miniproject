@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import User,CustomUser,Bank,Transaction,Notification
-
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import auth
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 # Create your views here.
 
 
@@ -101,7 +101,7 @@ def edit(request,id):
     data=User.objects.get(id=id)
     if request.method=="POST":
         data.name=request.POST['name']
-    
+        
         data.email=request.POST['email']
         data.address=request.POST['address']
         data.age=request.POST['age']
@@ -202,7 +202,21 @@ def admin(request):
 
 def viewusers(request):
     user=User.objects.all()
-    return render(request,'viewusers.html',{'user':user}) 
+    items_per_page=5
+    paginator= Paginator(user,items_per_page)
+    page= request.GET.get('page',1)
+
+    try:
+        user=paginator.page(page)
+    except PageNotAnInteger:
+        user=paginator.page(1)
+    except EmptyPage:
+        user=paginator.page(paginator.num_pages)
+    context={
+        'user': user
+    }
+
+    return render(request,'viewusers.html',context) 
 
 
 def index1(request):
@@ -222,6 +236,10 @@ def adminuseraccept(request,id):
         return redirect(viewusers)
     else:
         return redirect(viewusers)  
+    
+def adminview(request,id):
+    data=User.objects.get(id=id)
+    return render(request,'adminview.html',{'data':data})
 
 
 def notifications(request):
@@ -229,6 +247,11 @@ def notifications(request):
         notifications=request.POST['addnotifications']
         data=Notification.objects.create(notification=notifications)
         data.save()
-        return render(request,'notification.html')
+        return redirect(viewnotification)
     else:
         return render(request,'notification.html')
+
+
+def viewnotification(request):
+    data=Notification.objects.all()
+    return render(request,'viewnotification.html',{'data':data})
