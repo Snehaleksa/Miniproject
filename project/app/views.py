@@ -202,7 +202,7 @@ def admin(request):
 
 def viewusers(request):
     user=User.objects.all()
-    items_per_page=5
+    items_per_page=2
     paginator= Paginator(user,items_per_page)
     page= request.GET.get('page',1)
 
@@ -255,3 +255,8 @@ def notifications(request):
 def viewnotification(request):
     data=Notification.objects.all()
     return render(request,'viewnotification.html',{'data':data})
+
+def delete(request,id):
+    data=Notification.objects.get(id=id)
+    data.delete()
+    return redirect(viewnotification)

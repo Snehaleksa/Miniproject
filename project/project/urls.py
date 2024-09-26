@@ -45,6 +45,8 @@ urlpatterns = [
     path('notification',views.notifications,name='notification'),
     path('viewnotification',views.viewnotification,name='viewnotification'),
     path('adminview/<int:id>',views.adminview,name='adminview'),
+    path('delete/<int:id>',views.delete,name='delete'),
+    
     
 
     

@@ -1,6 +1,28 @@
 {% extends 'userhome.html' %}
 {% block content %}
-  <div style="padding-top: 20px;margin-left: 10px;background-color: rgb(91,248,196);text-align: center;width: 20%;height: 200px;">
+<style>
+  .responsive-div{
+    background-color: rgb(91,248,196);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 20%;
+    margin-left: 10px;
+  }
+  @media (max-width: 768px){
+    .responsive-div{
+      width: 90%;
+      margin-left: 5%;
+    }
+  }
+  @media (max-width: 468px){
+    .responsive-div{
+      width: 50%;
+
+    }
+  }
+</style>
+  <div class="responsive-div">
     
     <form action="withdrow" method="post">
         {% csrf_token %}
