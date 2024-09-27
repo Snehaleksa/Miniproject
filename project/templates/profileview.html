@@ -1,42 +1,136 @@
   {% extends 'userhome.html' %}
   {% block content %}
   {% load static %}
-    <div>
-      
-      <div style="background-color: rgb(91,248,196);width: 100%;height: 500px;border-radius: 20px;margin-left: 20px;">
-        <img class="img" src="{{ data1.image.url }}" alt=""height="100px" width="100px" style="margin-left: 150px;border-radius: 50%;margin-top: 20px;" >
-        <h4 style="text-align: center;">{{data1.name}}</h4>
-        <div style="display: flex;">
-          <div>
-          
-             <strong style="margin-left: 30px;">Email</strong>
-             <p style="margin-left: 50px;color: rgb(4, 68, 4);">{{data1.email}}</p>
-             <strong style="margin-left: 30px;">Address</strong>
-             <p style="margin-left: 50px;color: rgb(4,68,4);">{{data1.address}}</p>
-             <strong style="margin-left: 30px;">Age</strong>
-             <p style="margin-left: 50px;color: rgb(4, 68, 4);">{{data1.age}}</p>
-             <strong style="margin-left: 30px;">Adhar no:</strong>
-             <p style="margin-left: 50px;color: rgb(4,68,4);">{{data1.adharcard}}</p>
-          </div> 
-          <div>
-              <strong style="margin-left: 60px;">Username</strong>
-              <p style="margin-left: 80px;color: rgb(4,68,4);">{{data1.user_id.username}}</p>
-              <strong style="margin-left: 60px;">Dob</strong>
-              <p style="margin-left: 80px;color: rgb(4,68,4);">{{data1.dob}}</p>
-              <strong style="margin-left: 60px;">Phone no:</strong>
-              <p style="margin-left: 80px;color: (4,68,4);">{{data1.phone}}</p>
-              <strong style="margin-left: 60px;">Pancard no:</strong>
-              <p style="margin-left: 80px;color: (4,68,4);">{{data1.pancard}}</p>
-          </div>
-              
-        </div> 
-            
-              <p style="margin-left: 350px;"><a href="{% url 'edit' id=data1.id %}"><img  src="{% static 'img/edit.png'%}" alt="" height="25px" width="25px"></a><p>   
-      </div>  
+  <style>
+    body {
+        background-image: url("{% static 'img/Rectangle 5.png' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
 
-      
+    .container2 {
+        background-color: rgb(91, 248, 196);
+        width: 30%;
+        max-width: 600px; 
+        margin: 50px ;
+        padding: 20px;
+        border-radius: 20px;
         
-    </div>      
+    }
+
+    .img {
+        display: block;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+
+    h4 {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .info-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .info-section1, .info-section2 {
+        width: 30%;
+        margin-bottom: 15px;
+    }
+
+    .info-section strong {
+        font-weight: bold;
+    }
+
+    .info-section p {
+        margin-left: 10px;
+        color: rgb(4, 68, 4);
+    }
+    @media screen and (max-width: 768px) {
+        .container2 {
+            width: 50%;
+            padding: 10px;
+            height: 100%;
+        }
+
+        .img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .info-section {
+            flex-direction: column;
+        }
+
+        .info-section1, .info-section2 {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .container2 {
+            width: 50%;
+            padding: 5px;
+            margin-top: 50px;
+            height: 100%;
+        }
+
+        .img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .info-section div {
+            text-align: left;
+        }
+    }
+</style>
+</head>
+
+<body>
+<div class="container2">
+    <img class="img" src="{{ data1.image.url }}" alt="Profile Image">
+    <h4>{{ data1.name }}</h4>
+    <div class="info-section">
+        
+        <div class="info-section1">
+            <strong>Email:</strong>
+            <p>{{ data1.email }}</p>
+
+            <strong>Address:</strong>
+            <p>{{ data1.address }}</p>
+
+            <strong>Age:</strong>
+            <p>{{ data1.age }}</p>
+
+            <strong>Adhar no:</strong>
+            <p>{{ data1.adharcard }}</p>
+        </div>
+        
+        
+        <div class="info-section2">
+            <strong>Username:</strong>
+            <p>{{ data1.user_id.username }}</p>
+
+            <strong>DOB:</strong>
+            <p>{{ data1.dob }}</p>
+
+            <strong>Phone no:</strong>
+            <p>{{ data1.phone }}</p>
+
+            <strong>Pancard no:</strong>
+            <p>{{ data1.pancard }}</p>
+        </div>
+    </div>
+</div>
   {% endblock %}  
       
 </body>

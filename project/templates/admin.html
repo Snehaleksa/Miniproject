@@ -1,55 +1,112 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
     <style>
-        body{
+        
+        body {
             margin: 0;
             padding: 0;
-        }
-        .navbar{
-            display: flex;
-            justify-content: space-between;
-            background-color: rgb(91,248,196);
-            align-items: center;
-            padding: 10px 10px;
             
         }
-        .navbar ul{
+
+    
+
+        
+        nav {
+            background-color: rgb(91,248,196); 
+            padding: 10px 0;
+        }
+
+        nav ul {
             list-style-type: none;
             display: flex;
-            margin: 0;
-            padding: 0;
+            justify-content: space-around;
+            align-items: center;
         }
-        .navbar ul li{
-            margin-left: 50px;
+
+        nav ul li {
+            display: inline;
         }
-        .navbar ul li a{
+
+        nav ul li a {
             text-decoration: none;
+    
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .bell-icon {
+            font-size: 24px;
+        }
+
+        
+        .main-background {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             
+            
+        }
+
+        .main-background img {
+            max-width: 100%;
+            
+            
+        }
+
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .main-background {
+                height: auto;
+            }
+
+            .main-background img {
+                width: 100%;
+                
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .main-background img {
+                width: 100%;
+                
+            }
         }
     </style>
 </head>
-<body>
-    <nav class="navbar">
-       <ul>  
-          <li> <a href="{% url 'viewusers' %}">Viewuser</a></li>
-          
-          <li><a href="{% url 'notification' %}">Add Notification</a></li>
-          <li><a href="{% url 'viewnotification' %}">Viewnotification</a></li>
-          
-          
-          <li><a href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" alt="" width="25px" height="25px"></a></li>
-          
-        </ul> 
-        
 
-    </nav>
-    <div>
-        <img src="{% static 'img/Rectangle 5.png' %}" alt="" width="100%">
+<body>
+    
+    
+        <nav>
+            <ul>
+                <li><a href="{% url 'viewusers' %}">Viewuser</a></li>
+                <li><a href="{% url 'notification' %}">Add notification</a></li>
+                <li><a href="{% url 'viewnotification' %}"><img src="{% static 'img/bell.png' %}" alt="" height="20px" width="20px"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" alt="" height="25px" width="25"></i></a></li>
+            </ul>
+        </nav>
+
+
+    
+    <div class="main-background">
+        <img src="{% static 'img/Rectangle 5.png' %}" alt="">
     </div>
+
 </body>
+
 </html>

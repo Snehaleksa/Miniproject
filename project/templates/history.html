@@ -3,24 +3,69 @@
 <style>
     .main3{
         background-color: rgb(91,248,196);
-        width: 70%;
-        height: 400px;
+        padding: 20px;
+        width: 60%;
         border-radius: 20px;
-        margin-left: 80px;
+        margin-left: 20px;
+        max-width: 800pox;
         
     }
     table{
         width: 100%;
         border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
     }
     th{
         padding: 10px;
         text-align: left;
     }
     td{
-        padding: 10px;
+        padding: 15px;
         border-bottom: 1px solid black;
     }
+    @media screen and (max-width: 768px) {
+    
+
+    .container {
+        width: 100%;
+    }
+
+    th,td {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,  td {
+        padding: 5px;
+    }
+    
+    td {
+        display: block;
+        text-align: left;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+
+
+
+}
 </style>
 <div class="main3">     
      <table>

@@ -8,6 +8,14 @@
     <style>
         body{
             background-image: url("{% static 'img/Rectangle 5.png' %}");
+            margin: 0;
+            padding: 0;
+        }
+        .form-container{
+            display: flex;
+            
+            
+            
         }
         
         .form-container form{
@@ -15,6 +23,30 @@
             margin-top: 50px;
             width: 30%;
             text-align: center;
+        }
+        .form-container form input[type="text"]{
+            width: 80%;
+            height: 100px;
+            padding: 5px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            
+        }
+        @media screen and(max-width:768px){
+            .form-container form{
+                width: 60%;
+            }
+        }
+        @media screen and(max-width:480px){
+            .form-container form{
+                width: 80%;
+            }
+            .form-container form input[type="text"]{
+                height: 30px;
+                width: 50%;
+            }
         }
         
     </style>
@@ -24,7 +56,7 @@
        <form action="notification" method="post" style="background-color: rgb(91,248,196);">
            {% csrf_token %}
            <p>Add notifications</p>
-           <input style="width: 200px; height: 100px;"  type="text" name="addnotifications" required><br><br>
+           <input type="text" name="addnotifications" required><br><br>
            <input type="submit">
        </form>
     </div>

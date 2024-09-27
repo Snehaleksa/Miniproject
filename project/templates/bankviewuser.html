@@ -20,6 +20,7 @@
         }
         td{
             padding: 10px;
+            border-bottom: 1px solid black;
             
         }
         button{
@@ -41,6 +42,7 @@
         .sidebar img{
             width: 100%;
             height: auto;
+        
         }
         .main2{
             width: 70%;
@@ -50,6 +52,73 @@
         }
         .containermain{
             display: flex;
+        }
+        @media screen and (max-width: 768px) {
+            .containermain {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .main2 {
+                width: 100%;
+                padding: 10px;
+            }
+
+            table, th, td {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+
+        /* Mobile View */
+        @media screen and (max-width: 480px) {
+            .containermain {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .main2 {
+                width: 100%;
+                padding: 10px;
+            }
+
+            table, th, td {
+                font-size: 12px;
+            }
+
+            th {
+                padding: 5px;
+            }
+
+            td {
+                padding: 5px;
+                
+            }
+
+            button {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            td img {
+                width: 40px;
+                height: 40px;
+            }
+
+            button a {
+                padding: 5px;
+            }
         }
         
     </style>

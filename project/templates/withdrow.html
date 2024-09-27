@@ -1,6 +1,10 @@
 {% extends 'userhome.html' %}
 {% block content %}
 <style>
+   body{
+    margin: 0;
+    padding: 0;
+  }
   .responsive-div{
     background-color: rgb(91,248,196);
     padding: 20px;
@@ -11,7 +15,7 @@
   }
   @media (max-width: 768px){
     .responsive-div{
-      width: 90%;
+      width: 50%;
       margin-left: 5%;
     }
   }
@@ -20,7 +24,17 @@
       width: 50%;
 
     }
+    input[type="text"]{
+      width: 50%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      
+    }
+    
   }
+   
+
 </style>
   <div class="responsive-div">
     

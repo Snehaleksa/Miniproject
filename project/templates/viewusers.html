@@ -11,12 +11,34 @@
     body{
         margin: 0;
         padding: 0;
+        background-image: url("{% static 'img/Rectangle 5.png' %}");
         
     }
     .main{
-        background-image: url("{% static 'img/Rectangle 5.png' %}");
-        height: 700px;
+    
+        
+        margin-top: 50px;
     }
+    table{
+        border: 1px solid black;
+        margin-left: 20px;
+        background-color: rgb(91,248,196);
+        border-radius: 5px;
+        width: 50%;
+        height: 150px;
+        border-radius: 10px;
+        text-align: center;
+        
+    }
+    button a{
+        text-decoration: none;
+    }
+    @media screen and(max-width:768){
+        .main{
+
+        }
+    }
+
 </style>
 </head>
 <body>
@@ -25,9 +47,9 @@
         <table>
             <tr>
                 <th>sl.no</th>
-                <th></th>
-                <th>User Name</th>
-                <th></th>
+                <th>Name</th>
+                <th>Phone no:</th>
+                <th>Address</th>
                 <th></th>
             </tr>
             {% for i in user %}

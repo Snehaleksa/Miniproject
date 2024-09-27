@@ -5,26 +5,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Profile Card</title>
+
     <style>
-        .main{
+        body {
             background-image: url("{% static 'img/Rectangle 5.png' %}");
-            height: 650px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container2 {
+            background-color: rgb(91, 248, 196);
+            width: 30%;
+            max-width: 600px; 
+            margin: 50px ;
+            padding: 20px;
+            border-radius: 20px;
+            
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        h4 {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .info-section1, .info-section2 {
+            width: 30%;
+            margin-bottom: 15px;
+        }
+
+        .info-section strong {
+            font-weight: bold;
+        }
+
+        .info-section p {
+            margin-left: 10px;
+            color: rgb(4, 68, 4);
+        }
+        @media screen and (max-width: 768px) {
+            .container2 {
+                width: 50%;
+                padding: 10px;
+            }
+
+            .img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .info-section {
+                flex-direction: column;
+            }
+
+            .info-section1, .info-section2 {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container2 {
+                width: 50%;
+                padding: 5px;
+            }
+
+            .img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .info-section div {
+                text-align: left;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="main">
-        <table>
-            <tr>
-                <th>name</th>
-            </tr>
-            <tr>
-                <td>{{data.name}}</td>
-                <td>{{data.email}}</td>
-                <td>{{data.address}}</td>
-            </tr>
-        </table>
-    </div>    
+    <div class="container2">
+        <img class="img" src="{{ data.image.url }}" alt="Profile Image">
+        <h4>{{ data.name }}</h4>
+        <div class="info-section">
+            
+            <div class="info-section1">
+                <strong>Email:</strong>
+                <p>{{ data.email }}</p>
+
+                <strong>Address:</strong>
+                <p>{{ data.address }}</p>
+
+                <strong>Age:</strong>
+                <p>{{ data.age }}</p>
+
+                <strong>Adhar no:</strong>
+                <p>{{ data.adharcard }}</p>
+            </div>
+            
+            
+            <div class="info-section2">
+                <strong>Username:</strong>
+                <p>{{ data.user_id.username }}</p>
+
+                <strong>DOB:</strong>
+                <p>{{ data.dob }}</p>
+
+                <strong>Phone no:</strong>
+                <p>{{ data.phone }}</p>
+
+                <strong>Pancard no:</strong>
+                <p>{{ data.pancard }}</p>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

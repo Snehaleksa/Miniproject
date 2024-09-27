@@ -2,13 +2,11 @@
 {% block content %} 
 {% load static %}
 <style>
-   .container{
-    background-image: url("{% static 'img/Rectangle 5.png' %}");
-   } 
+    
 </style>
 <div class="container">
       
-    <div style="background-color: rgb(91,248,196);width: 40%;height: 450px;margin-top: 40px;margin-left: 20px;border-radius: 20px;">
+    <div style="background-color: rgb(91,248,196);width: 30%;height: 450px;margin-top: 40px;margin-left: 20px;border-radius: 20px;">
       <img class="img" src="{{ user.image.url }}" alt=""height="100px" width="100px" style="margin-left: 150px;border-radius: 50%;margin-top: 10px;" >
       <h4 style="text-align: center;">{{user.name}}</h4>
       <div style="display: flex;">

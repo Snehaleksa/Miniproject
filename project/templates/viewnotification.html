@@ -6,19 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .main{
+        body{
+            margin: 0;
+            padding: 0;
             background-image: url("{% static 'img/Rectangle 5.png' %}");
-            height: 650px;
         }
-        table,td,th{
+        
+        table{
             border: 2px solid black;
             border-collapse: collapse;
             
         }
         table{
             width: 50%;
-            align-items: center;
+            height: 150px;
+            text-align: center;
+            background-color: rgb(91,248,196);
+            
         }
+        td,th{
+            border-bottom: 1px solid black;
+        }
+        .main{
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
     </style>
 </head>
 <body>
@@ -34,7 +47,7 @@
             <tr>
                 <td>{{forloop.counter}}</td>
                 <td>{{i.notification}}</td>
-                <td><a href="{% url 'delete' id=i.id %}">Delete</a></td>
+                <td><button><a style="text-decoration: none;" href="{% url 'delete' id=i.id %}">Delete</a></button></td>
             </tr>
            {% endfor %} 
         </table>
