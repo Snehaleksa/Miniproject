@@ -2,39 +2,131 @@
 {% block content %} 
 {% load static %}
 <style>
-    
-</style>
-<div class="container">
-      
-    <div style="background-color: rgb(91,248,196);width: 30%;height: 450px;margin-top: 40px;margin-left: 20px;border-radius: 20px;">
-      <img class="img" src="{{ user.image.url }}" alt=""height="100px" width="100px" style="margin-left: 150px;border-radius: 50%;margin-top: 10px;" >
-      <h4 style="text-align: center;">{{user.name}}</h4>
-      <div style="display: flex;">
-        <div>
-        
-           <p style="margin-left: 50px;">Email</p>
-           <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{user.email}}</p>
-           <p style="margin-left: 50px;">Address</p>
-           <p style="margin-left: 70px;color: rgb(4,68,4);">{{user.address}}</p>
-           <p style="margin-left: 50px;">Age</p>
-           <p style="margin-left: 70px;color: rgb(4, 68, 4);">{{user.age}}</p>
-           <p style="margin-left: 50px;">Adhar no:</p>
-           <p style="margin-left: 70px;color: rgb(4,68,4);">{{user.adharcard}}</p>
-        </div> 
-        <div>
-            <p style="margin-left: 80px;">Username</p>
-            <p style="margin-left: 100px;color: rgb(4,68,4);">{{user.user_id.username}}</p>
-            <p style="margin-left: 80px;">Dob</p>
-            <p style="margin-left: 100px;color: rgb(4,68,4);">{{user.dob}}</p>
-            <p style="margin-left: 80px;">Phone no:</p>
-            <p style="margin-left: 100px;color: (4,68,4);">{{user.phone}}</p>
-            <p style="margin-left: 80px;">Pancard no:</p>
-            <p style="margin-left: 100px;color: (4,68,4);">{{user.pancard}}</p>
-        </div>
-      </div> 
-    </div>  
+  body {
+      background-image: url("{% static 'img/Rectangle 5.png' %}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+  }
 
-    
-  </div>  
+  .container2 {
+      background-color: rgb(91, 248, 196);
+      width: 30%;
+      max-width: 600px; 
+      margin: 50px ;
+      padding: 20px;
+      border-radius: 20px;
+      
+  }
+
+  .img {
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+  }
+
+  h4 {
+      text-align: center;
+      margin: 10px 0;
+  }
+
+  .info-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px 20px;
+  }
+
+  .info-section1, .info-section2 {
+      width: 30%;
+      margin-bottom: 15px;
+  }
+
+  .info-section strong {
+      font-weight: bold;
+  }
+
+  .info-section p {
+      margin-left: 10px;
+      color: rgb(4, 68, 4);
+  }
+  @media screen and (max-width: 768px) {
+      .container2 {
+          width: 50%;
+          padding: 10px;
+      }
+
+      .img {
+          width: 80px;
+          height: 80px;
+      }
+
+      .info-section {
+          flex-direction: column;
+      }
+
+      .info-section1, .info-section2 {
+          width: 100%;
+      }
+  }
+
+  @media screen and (max-width: 480px) {
+      .container2 {
+          width: 50%;
+          padding: 5px;
+      }
+
+      .img {
+          width: 70px;
+          height: 70px;
+      }
+
+      .info-section div {
+          text-align: left;
+      }
+  }
+</style>
+</head>
+
+<body>
+<div class="container2">
+  <img class="img" src="{{ user.image.url }}" alt="Profile Image">
+  <h4>{{ user.name }}</h4>
+  <div class="info-section">
+      
+      <div class="info-section1">
+          <strong>Email:</strong>
+          <p>{{ user.email }}</p>
+
+          <strong>Address:</strong>
+          <p>{{ user.address }}</p>
+
+          <strong>Age:</strong>
+          <p>{{ user.age }}</p>
+
+          <strong>Adhar no:</strong>
+          <p>{{ user.adharcard }}</p>
+      </div>
+      
+      
+      <div class="info-section2">
+          <strong>Username:</strong>
+          <p>{{ user.user_id.username }}</p>
+
+          <strong>DOB:</strong>
+          <p>{{ user.dob }}</p>
+
+          <strong>Phone no:</strong>
+          <p>{{ user.phone }}</p>
+
+          <strong>Pancard no:</strong>
+          <p>{{ user.pancard }}</p>
+      </div>
+  </div>
+</div>
 {% endblock %}    
     

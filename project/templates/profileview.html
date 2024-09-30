@@ -91,6 +91,7 @@
         .info-section div {
             text-align: left;
         }
+
     }
 </style>
 </head>
@@ -129,7 +130,9 @@
             <strong>Pancard no:</strong>
             <p>{{ data1.pancard }}</p>
         </div>
+        
     </div>
+    <a style="margin-left: 380px;" href="{% url 'edit' id=data1.id %}"><img src="{% static 'img/edit.png' %}" alt="" height="20px" width="20px"></a>
 </div>
   {% endblock %}  
       

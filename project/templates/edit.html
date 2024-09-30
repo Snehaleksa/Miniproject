@@ -1,55 +1,108 @@
 {% extends 'userhome.html' %}
 {% block content %}
 <style>
-  label{
+  
+  label {
     display: block;
     margin-bottom: 5px;
-    text-align: top;
   }
-  input{
+  input[type="text"] {
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  .submit-btn {
+    
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background-color: greenyellow;
+    color: white;
     border-radius: 5px;
     
   }
-  .submit-btn{
-    margin: 0 auto;
-    display: block;
+  
+  .form-container {
+    background-color: rgb(91,248,196);
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-column {
+    
+    min-width: 250px;
+    margin-right: 20px;
+  }
+
+  
+  @media (max-width: 768px) {
+    .form-column {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .form-container {
+      width: 90%;
+      margin: 0 auto;
+    }
+    input {
+      padding: 10px;
+    }
   }
 </style>
-<div style="background-color: rgb(91,248,196);margin-left: 20px;border-radius: 20px;height: 400px;width: 50%;">
-       <form action="{% url 'edit' id=data.id %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div style="display: flex;padding: 10px;justify-content: space-between;">
-          <div style="margin-left: 10px;">  
-            <label for="">Name</label>
-            <input type="text" name="name" value="{{data.name}}" required><br><br>
-            <label for="">Email</label>
-            <input type="text" name="email" value="{{data.email}}" required><br><br>
-            <label for="">Address</label>
-            <input type="text" name="address" value="{{data.address}}" required><br><br>
-            <label for="">Age</label>
-            <input type="text" name="age" value="{{data.age}}" required><br><br>
-        
-            <label for="">Aadhar</label>
-            <input type="text" name="adharcard" value="{{data.adharcard}}" required ><br><br>
-          </div>
-          <div style="margin-left: 60px;">
-            <label for="">Phone</label>
-            <input type="text" name="phone" value="{{data.phone}}" required ><br><br>
-            
-            <label for="">DOB</label>
-            <input type="text" name="dob" value="{{data.dob|date:'Y-m-d'}}" required ><br><br>
-            <label for="">Phone</label>
-            <input type="text" name="phone" value="{{data.phone}}" required ><br><br>
-            <label for="">pancard no</label>
-            <input type="text" name="pancard" value="{{data.pancard}}" required ><br><br>
-            <label for="">Image</label>
-            <input type="file" name="image" value="{{data.image}}" required ><br><br>
-          
-          </div>
-        </div>  
-            <input class="submit-btn" type="submit" value="Update">
-          
-           
-      </form>
+
+<div class="form-container">
+  <form action="{% url 'edit' id=data.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-column">  
+        <label for="">Name</label>
+        <input type="text" name="name" value="{{data.name}}" required><br><br>
+
+        <label for="">Email</label>
+        <input type="text" name="email" value="{{data.email}}" required><br><br>
+
+        <label for="">Address</label>
+        <input type="text" name="address" value="{{data.address}}" required><br><br>
+
+        <label for="">Age</label>
+        <input type="text" name="age" value="{{data.age}}" required><br><br>
+
+        <label for="">Aadhar</label>
+        <input type="text" name="adharcard" value="{{data.adharcard}}" required><br><br>
+      </div>
+
+      <div class="form-column">
+        <label for="">Phone</label>
+        <input type="text" name="phone" value="{{data.phone}}" required><br><br>
+
+        <label for="">DOB</label>
+        <input type="text" name="dob" value="{{data.dob|date:'Y-m-d'}}" required><br><br>
+
+        <label for="">Pancard No</label>
+        <input type="text" name="pancard" value="{{data.pancard}}" required><br><br>
+        <label for="">Age</label>
+        <input type="text" name="Age"><br><br>
+
+        <label for="">Image</label>
+        <input type="file" name="image" required><br><br>
+      </div>
+    </div>  
+    <input class="submit-btn" type="submit" value="Update">
+  </form>
 </div>
 {% endblock %}
