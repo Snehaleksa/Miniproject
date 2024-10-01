@@ -1,58 +1,157 @@
-    {% extends 'login.html' %}
-    
-    {% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
+      body{
+        padding: 0;
+        margin: 0;
+        background-color: black;
+      }
       .button2{
         margin-left: 45%;
+      }
+      
+      .container {
+        display: flex;
+        height: 410px; 
+        margin-left: 150px;
+        margin-top: 50px;
+        
+        background-color: white;
+        width: 55%;
+        
         
       }
-    </style>
-  <div style="width: 70%;background-color: rgb(91,248,196);margin-right: 50px;margin-top: 20px;height: 400px;"> 
-    <form action="register" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div style="display: flex;margin-left: 50px;">
-          <div>
-             <h6>Name</h6>
-             <input type="text"name="name" required><br><br>
-             <h6> Userame</h6>
-             <input type="text"name="username" required><br><br>
-             <h6>Password</h6>
-             <input type="text"name="password" required><br><br>
-             <h6>Account_no</h6>
-             <input type="text"name="account_no" required><br><br>
-          
-          
-             <h6>Image</h6>
-             <input type="file"name="image" required><br><br>
-             <h6>Address</h6>
-             <input type="text"name="address" required><br><br>
-             <h6>Age</h6>
-             <input type="text" name="age" required><br><br>
-           </div> 
-           <div> 
-             <h6>Email</h6>
-             <input type="text"name="email" required><br><br>
-             <h6>Age</h6>
-             <input type="text"name="age" required><br><br>
-             <h6>Phone</h6>
-             <input type="text"name="phone" required><br><br>
-             <h6>Dob</h6>
-             <input type="date"name="dob" required><br><br>
-             <h6>Adharcard_no</h6>
-             <input type="text"name="adharcard" required><br><br>
-             <h6>Pancard_no</h6>
-             <input type="text"name="pancard" required><br><br>
-             <h6>Initial_amount</h6>
-             <input type="text"name="initial_amount" required><br><br>
+      .image-container img {
+        height: 100%; 
+        object-fit: cover; 
+        height: 410px;
+      }
+      .form-container {
+        margin-left: 70px;
+        height: 360px;
+        border-radius: 10px;
+        margin-top: 10px;
+        background-color: rgb(91, 248, 196);
+        padding: 5px;
         
-             
+      }
+      
+  .button2 {
+    margin-left: 45%; 
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row; 
+    height: 410px; 
+    margin: 50px auto; 
+    background-color: white;
+    width: 55%; 
+    justify-content: space-between; 
+    border-radius: 10px; 
+    overflow: hidden; 
+  }
+
+  .image-container {
+    flex: 1; 
+  }
+
+  .image-container img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover; 
+  }
+
+  .form-container {
+    flex: 1; 
+    margin: 10px; 
+    border-radius: 10px;
+    background-color: rgb(91, 248, 196);
+    padding: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      margin: 20px auto; 
+      width: 90%; 
+      height: auto; 
+    }
+    
+    .image-container {
+      width: 100%; 
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      width: 100%; 
+      margin: 0; 
+    }
+
+    .button2 {
+      margin-left: 0; 
+      display: block; 
+      margin-top: 10px;
+    }
+  }
+</style>
+ 
+      
+    </style>
+</head>
+<body>
+  <div class="container">  
+    
+    <div class="image-container">
+      <img src="{% static 'img/Rectangle 1.png' %}" alt="" height="400px">
+    </div>
+    
+  
+    <div class="form-container"> 
+      <form action="register" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style="display: flex;">
+          <div>
+            
+            <input type="text" placeholder="name" name="name" required><br><br>
+            
+            <input type="text" placeholder="username" name="username" required><br><br>
+            
+            <input type="password" placeholder="password" name="password" required><br><br>
+            
+            <input type="text" placeholder="account_no" name="account_no" required><br><br>
+            
+            <input type="file" placeholder="upload image" name="image" required><br><br>
+            
+            <input type="text" placeholder="address" name="address" required><br><br>
+            
+            <input type="text" placeholder="age" name="age" required><br><br>
+          </div> 
+          <div> 
+            
+            <input type="email" placeholder="Email" name="email" required><br><br>
+            
+            <input type="text" placeholder="phone " name="phone" required><br><br>
+            
+            <input type="date" placeholder="dob" name="dob" required><br><br>
+            
+            <input type="text" placeholder="adharcard" name="adharcard" required><br><br>
+            
+            <input type="text" placeholder="pancard" name="pancard" required><br><br>
+            
+            <input type="text" placeholder="initial_amount" name="initial_amount" required><br><br>
           </div>
           
-        </div> 
-        <button class="button2" type="submit">Register</button> 
-            <p style="margin-left: 110px;">Already have an account?
-            <a style="text-decoration: none;" href="login">login</a></p>
-        
-    </form>
-  </div>  
-    {% endblock %}
+        </div>
+           <button class="button2" type="submit">Register</button> 
+           <p>Already have an account? <a style="text-decoration: none;" href="login">Login</a></p>
+      </form>
+    </div>
+  </div>    
+</body>
+</html>

@@ -5,166 +5,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<style>
-    body{
-        font-family: Arial,sans-serif;
-        margin: 0;
-        padding: 0;
-        
-        
-    }
-    .navbar{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        height: 70px;
-        background-color: rgb(91,248,196);
-        
-        
-    }
-    .navbar .logo{
-        font-size: 24px;
-        
-
-    }
-    .navbar ul{
-        list-style-type: none;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0;
-        
-        
-        
-    }
-    .navbar ul li{
-        margin-left: 20px;
-        flex-basis: 100px;
-        
-
-    }
-    .navbar ul li a{
-        text-decoration: none;
-        padding: 50px;
-        font-size: 16px;
-        
-        
-    }
-    .container{
-        display: flex;
-        
-        align-items: center;
-        
-        background-image: url("{% static 'img/Rectangle 5.png' %}");
-        background-size: cover;
-        background-position: center;
-        height: 600px;
-        
-    }
-    .main{
-        background-color: rgb(91,248,196);
-        padding: 20px;
-        border-radius: 10px;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-        margin-left: 10px;
-        margin-bottom: 100px;
-        
-    }
-    .main h3{
-        margin: 10px 0;
-
-    }
-    .main p{
-        font-size: 18px;
-        font-weight: bold;
-        margin: 10px 0;
-    }
-    @media screen and(max-width:768px){
-        
-        .navbar ul li{
-            
-            margin-left: 10px;
-            flex-basis: 100px;
-        }
-        .main{
-            width: 95%;
-            
-            max-width: 300px;
-            margin: 20px auto;
-        }
-        .main h3{
-            font-size: 16px;
-            
-        }
-        .main p{
-            font-size: 14px;
-        }
-    }
-    @media screen and(max-width:480px){
-        .navbar{
-            flex-direction: column;
-            
-            
-        }
-        .navbar ul{
-            flex-direction: column;
-        }
-        
-        .navbar ul li{
+    <style>
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
-            flex-basis: auto;
+            padding: 0;
         }
-        
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            background-color: rgb(91, 248, 196);
+            padding: 0 20px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            color: black;
+        }
 
         
-        .main{
-            width: 100%;
-            
-            padding: 10px;
+        .container {
+            display: flex;
+            align-items: center;
+            background-image: url("{% static 'img/Rectangle 5.png' %}");
+            background-size: cover;
+            background-position: center;
+            height: 600px;
         }
-    }
-    
-    
-</style>
+
+        .main {
+            background-color: rgb(91, 248, 196);
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            margin-left: 10px;
+            margin-bottom: 100px;
+        }
+
+        .main h3 {
+            margin: 10px 0;
+        }
+
+        .main p {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar ul li {
+                margin: 10px 0;
+            }
+
+            .main {
+                width: 95%;
+                max-width: 300px;
+                margin: 20px auto;
+            }
+
+            .main h3 {
+                font-size: 16px;
+            }
+
+            .main p {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar ul li {
+                margin: 10px 0;
+            }
+
+            .main {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
 <body>
     <div class="navbar">
-        <div class="logo"><a href="{% url 'profileview' %}"><img src="{{ data1.image.url }}" alt="" height="70px" width="70px" style="border-radius: 50%;"></a></div>
-          <nav>
-              <ul>
-                
-             
-                <li><a style="text-decoration: none;" href="{% url 'userhome' %}">Home</a></li>
-                <li><a href="{% url 'viewnotification' %}"><img src="{% static 'img/bell.png' %}" alt=""height="20px" width="20px"></a></li>
-                <li><a style="text-decoration: none;" href="{% url 'deposit' %}">Deposite</a></li>
-                <li><a style="text-decoration: none;" href="{% url 'withdrow' %}">Withdrow</a></li>
-                
-                <li><a style="text-decoration: none;" href="{% url 'logout' %}"><img src="{% static 'img/logout.png '%}" alt="" height="20px" width="25px"></a></li>
-                
-              </ul>
-          </nav>
-    </div>     
+        <div class="logo">
+            <a href="{% url 'profileview' %}">
+                <img src="{{ data1.image.url }}" alt="" height="70px" width="70px" style="border-radius: 50%;">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'userhome' %}">Home</a></li>
+                <li><a href="{% url 'viewnotification' %}"><img src="{% static 'img/bell.png' %}" alt="" height="20px" width="20px"></a></li>
+                <li><a href="{% url 'deposit' %}">Deposit</a></li>
+                <li><a href="{% url 'withdrow' %}">Withdraw</a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'img/logout.png' %}" alt="" height="20px" width="25px"></a></li>
+            </ul>
+        </nav>
+    </div>
+{% block content %}
+    <div class="container">
         
-        <div class="container">
-            {% block content %}
-          
-          <div class="main">
-            
-              <h3>account_no</h3>
-              <p>{{data1.account_no}}</p>
-              <h3>initial_amount</h3>
-              <p>{{data1.initial_amount}}</p>
-              <div style="display: flex;justify-content: space-between;">
-                <a style="text-decoration: none;" href="{% url 'history' %}">viewhistory</a>  
-                <a style="text-decoration: none;color: black;" href="more">More</a>
-              </div>
-            
-          <div>
-        </div>    
-            
-        {% endblock %}    
-    
+        <div class="main">
+            <h3>Account No</h3>
+            <p>{{data1.account_no}}</p>
+            <h3>Initial Amount</h3>
+            <p>{{data1.initial_amount}}</p>
+            <div style="display: flex; justify-content: space-between;">
+                <a href="{% url 'history' %}" style="text-decoration: none;">View History</a>
+                <a href="more" style="text-decoration: none; color: black;">More</a>
+            </div>
+        </div>
+{% endblock %}
+    </div>
 </body>
 </html>

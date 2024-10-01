@@ -8,7 +8,7 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 
 def index(request):
-    return render(request,'index1.html')
+    return render(request,'index.html')
 
 def Login(request):
     if request.method=='POST':
