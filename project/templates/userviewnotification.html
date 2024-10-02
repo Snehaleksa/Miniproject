@@ -1,0 +1,51 @@
+{% extends 'userhome.html' %}
+{% block content %}
+{% load static %}
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'img/Rectangle 5.png' %}");
+        }
+        
+        table{
+            border: 2px solid black;
+            border-collapse: collapse;
+            
+        }
+        table{
+            width: 100%;
+            height: 150px;
+            text-align: center;
+            background-color: rgb(91,248,196);
+            
+        }
+        td,th{
+            border-bottom: 1px solid black;
+        }
+        .main{
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <table>
+            <tr>
+                
+                <th colspan="3">notifications</th>
+                
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.notification}}</td>
+                
+            </tr>
+           {% endfor %} 
+        </table>
+    </div>
+{% endblock %}

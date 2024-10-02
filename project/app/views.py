@@ -171,7 +171,9 @@ def Logout(request):
     auth.logout(request)
     return redirect(Login)
 
-
+def userviewnotification(request):
+    data=Notification.objects.all()
+    return render(request,'userviewnotification.html',{'data':data})
 #bank
 def bankhome(request):
     data=CustomUser.objects.get(id=request.user.id)
@@ -194,6 +196,12 @@ def bankuserhistory(request,id):
     data1=Transaction.objects.filter(transaction_id=data) 
     
     return render(request,'userhistory.html',{'data1':data1}) 
+
+
+
+def bankviewnotification(request):
+    data=Notification.objects.all()
+    return render(request,'bankviewnotification.html',{'data':data})
 
 
 def admin(request):
